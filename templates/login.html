@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block body %}
+<form action="/login" method="post">
+    <div class="container-fluid text-left">
+        <div class="row pt-3">
+            <strong class = 'fs-4'>Login as a student</strong>
+        </div>
+    </div>
+        <div class="row px-3 pt-3 pb-1">
+            <div class="col align-self-center">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="username_label">Username</span>
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="username_label" name = 'username' autocomplete = 'off'>
+            </div>
+            </div>
+        </div>
+        <div class="row px-3">
+            <div class="col align-self-center">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="password_label">Password</span>
+                <input type="password" class="form-control" aria-label="password" aria-describedby="password_label" name = 'password' autocomplete = 'off'>
+            </div>
+            </div>
+        </div>
+        <div class="container text-center">
+            <div class="row p-1">
+                <div class="col align-self-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

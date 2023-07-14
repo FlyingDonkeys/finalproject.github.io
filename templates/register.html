@@ -1,0 +1,80 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block body %}
+<form action="/register" method="post">
+    <div class="container-fluid text-left">
+        <div class="row pt-3">
+            <strong class = 'fs-4'>Register as a student</strong>
+        </div>
+    </div>
+    <div class="container text-center">
+        <div class="row pt-3">
+            <div class="col align-self-left">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Full Name</span>
+                    <input type="text" class="form-control" aria-label="Name" aria-describedby="inputGroup-sizing-default" name = 'name' autocomplete = 'off' autofocus>
+                </div>
+            </div>
+            <div class="col align-self-right">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="number_label">Mobile +65</span>
+                    <input type="text" class="form-control" aria-label="Number" maxlength = '8' aria-describedby="number_label" name = 'number' autocomplete = 'off'>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col align-self-center">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="username_label">Username</span>
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="username_label" name = 'username' autocomplete = 'off'>
+            </div>
+            </div>
+        </div>
+        <div class="row p-1">
+            <div class="col align-self-center">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="password_label">Password</span>
+                <input type="password" id = 'pw' class="form-control" aria-label="Password" aria-describedby="password_label" name = 'password' autocomplete = 'off'>
+            </div>
+            </div>
+        </div>
+        <div class="row p-1">
+            <div class="col-11 align-self-left">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="confirm_label">Confirm Password</span>
+                <input type="password" id = 'cpw' class="form-control" aria-label="PasswordConfirm" aria-describedby="confirm_label" name = 'confirmpassword' autocomplete = 'off'>
+            </div>
+            </div>
+            <div class="col-1 align-self-right">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+        <div class = 'row'>
+            <span id="password-warning" class="text-danger fs-4"></span>
+        </div>
+    </div>
+</form>
+
+<script>
+    function passwordnomatch(event)
+    {
+        const password = document.getElementById('pw').value;
+        const confirmpassword = document.getElementById('cpw').value;
+        const warning = document.getElementById('password-warning');
+
+        if (password !== confirmpassword) {
+            warning.textContent = 'The passwords do not match';
+        } else {
+            warning.textContent = '';  // Clear the warning when the passwords match
+        }
+    }
+    // This addEventLiatener will submit the stuff in the input field into the function passwordnomatch, instead of running it immediately
+    document.getElementById('pw').addEventListener('input', passwordnomatch);
+    document.getElementById('cpw').addEventListener('input', passwordnomatch);
+</script>
+
+{% endblock %}
